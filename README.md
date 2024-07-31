@@ -17,7 +17,9 @@ React 개발을 위한 나만의 Vite+React 커스텀 템플릿!
 🛠 자동이 아닌 직접 Vite + React 스캐폴딩 해보자!
 
 ⏬
+
 ⏬
+
 ⏬
 
 ## 새로운 Git Repo 생성하기
@@ -38,40 +40,40 @@ React 개발을 위한 나만의 Vite+React 커스텀 템플릿!
 
 4. .gitignore 파일 만들기
 
-   - 파일위치 : vite-react-templat (최상위)
-   - 파일명 : .gitignore
-   - 파일내용
+- 파일위치 : vite-react-templat (최상위)
+- 파일명 : .gitignore
+- 파일내용
 
-     ```jsx
-     .DS-Store
+  ```jsx
+  .DS-Store
 
-     node_modules
-     build
-     dist
-     ```
+  node_modules
+  build
+  dist
+  ```
 
-     맥에서 생성되는 .DS-Store 라는 파일과
-     node_modules 폴더,
-     build 파일,
-     build 된 결과로 생성된 dist 폴더
-     이렇게 4가지는 깃에 올리지마라! 는 뜻
+  맥에서 생성되는 .DS-Store 라는 파일과
+  node_modules 폴더,
+  build 파일,
+  build 된 결과로 생성된 dist 폴더
+  이렇게 4가지는 깃에 올리지마라! 는 뜻
 
 5. .npmrc 파일 만들기
 
-   - 파일위치 : vite-react-templat (최상위)
-   - 파일명 : .npmrc
-   - 파일내용
+- 파일위치 : vite-react-templat (최상위)
+- 파일명 : .npmrc
+- 파일내용
 
-     ```jsx
-     # 참고: https://docs.npmjs.com/cli/v8/using-npm/config
+  ```jsx
+  # 참고: https://docs.npmjs.com/cli/v8/using-npm/config
 
-     package-lock=true
-     save-exact=true
-     yes=true
+  package-lock=true
+  save-exact=true
+  yes=true
 
-     init-license=MIT
-     init-version=0.0.1
-     ```
+  init-license=MIT
+  init-version=0.0.1
+  ```
 
 ---
 
@@ -136,26 +138,26 @@ React 개발을 위한 나만의 Vite+React 커스텀 템플릿!
 
 1. index.html 파일 만들기
 
-   - 파일위치 : vite-react-templat (최상위)
-   - 파일명 : index.html
-   - 파일내용
+- 파일위치 : vite-react-templat (최상위)
+- 파일명 : index.html
+- 파일내용
 
-     ```html
-     <!DOCTYPE html>
-     <html lang="ko-KR">
-       <head>
-         <meta charset="UTF-8" />
-         <title>Vite + React 커스텀 템플릿</title>
-         <meta name="viewport" content="width=device-width, initial-scale=1" />
-         <link rel="icon" type="image/svg+xml" href="/viteReact.svg" />
-       </head>
+  ```html
+  <!DOCTYPE html>
+  <html lang="ko-KR">
+    <head>
+      <meta charset="UTF-8" />
+      <title>Vite + React 커스텀 템플릿</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <link rel="icon" type="image/svg+xml" href="/viteReact.svg" />
+    </head>
 
-       <body>
-         <noscript>이 앱을 사용하려면 JavaScript 활성화가 필요합니다.</noscript>
-         <div id="react-app"></div>
-       </body>
-     </html>
-     ```
+    <body>
+      <noscript>이 앱을 사용하려면 JavaScript 활성화가 필요합니다.</noscript>
+      <div id="react-app"></div>
+    </body>
+  </html>
+  ```
 
 ---
 
