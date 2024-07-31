@@ -16,7 +16,9 @@ React 개발을 위한 나만의 Vite+React 커스텀 템플릿!
 
 🛠 자동이 아닌 직접 Vite + React 스캐폴딩 해보자!
 
----
+⏬
+⏬
+⏬
 
 ## 새로운 Git Repo 생성하기
 
