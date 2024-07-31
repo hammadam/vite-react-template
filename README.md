@@ -421,7 +421,7 @@ pnpm add @types/{react,react-dom,node} -D
 
 # @vitejs/plugin-react 설치
 
-⚠️ 콘솔창에 React is not defined 오류를 해결하러 가보쟈
+⚠️ 콘솔창에 뜬 React is not defined 오류를 해결하러 가보자!!! go~
 
 **@vitejs/plugin-react** 를 설치하면
 
