@@ -480,7 +480,7 @@ pnpm add @types/{react,react-dom,node} -D
    import React from "react";
    ```
 
-   를 안 불러와도 문제가 없어야 하는데 어디한번 확인해보쟈!
+   를 안 불러와도 문제가 없어야 하는데 어디한번 확인해보자!!
 
    - App.jsx 파일의 상단의 저 import 를 삭제해도 vite 서버에서 문제 없이 구동되는걸 확인 가능
    - main.jsx 파일 상단의
