@@ -426,7 +426,7 @@ pnpm add @types/{react,react-dom,node} -D
 - 트랜스폼 해주는 바벨, 타입스크립트, 비트 등에게 우리가 리액트를 이렇이렇게 돌리고자 한다 라고 말을 해줘야하는데,
 - 매번 말해주기엔 힘드니 자동으로 주입해주려고하는데
 - 비트는 기본적으로 그런 기능이 없으니,
-- 아래 플러그인을 설치해서 아래 코드를 자동으로 주입해줄 수 있다!
+- 어떠한 플러그인을 설치해서 아래 코드를 자동으로 주입해줄 수 있다!
   ```bash
   //우리가 말하고자 하는 내용
   import {jsx as _jsx} from 'react/jsx-runtime';
@@ -436,7 +436,7 @@ pnpm add @types/{react,react-dom,node} -D
 - 또는 바벨에 대한 플러그인이나 프리셋을 우리가 원하는대로 커스터마이징 할 수 있고
 - 설치 사이즈도 매우 작다..!
 
-**→ 결국 보다 나은, 진보된 형태의 js 타입을 쓰기 위해!**
+**→ 결국 보다 나은, 진보된 형태의 js 타입을 쓰기 위해 설치하는 것!**
 
 어떻게 깔아요?
 
@@ -460,58 +460,58 @@ pnpm add @types/{react,react-dom,node} -D
 1. 최상위 폴더에서 vite.config.js 파일 생성
 2. 파일 내용
 
-```jsx
-import { defineConfig } from "vite";
-import pluginReact from "@vitejs/plugin-react";
+   ```jsx
+   import { defineConfig } from "vite";
+   import pluginReact from "@vitejs/plugin-react";
 
-const viteConfig = defineConfig({
-  plugins: [pluginReact()],
-});
-export default viteConfig;
-```
+   const viteConfig = defineConfig({
+     plugins: [pluginReact()],
+   });
+   export default viteConfig;
+   ```
 
-여기까지 했을 때
+   여기까지 했을 때
 
-App.jsx 와 main.jsx 상단에서
+   App.jsx 와 main.jsx 상단에서
 
-```jsx
-import React from "react";
-```
+   ```jsx
+   import React from "react";
+   ```
 
-를 안 불러와도 문제가 없어야 하는데 어디한번 확인해보쟈!
+   를 안 불러와도 문제가 없어야 하는데 어디한번 확인해보쟈!
 
-- App.jsx 파일의 상단의 저 import 를 삭제해도 vite 서버에서 문제 없이 구동되는걸 확인 가능
-- main.jsx 파일 상단의
-  `import React, { StrictMode } from "react";` 를
-  `import { StrictMode } from "react";` 로 수정해봐도
-  vite 서버에서 문제 없이 구동되는걸 확인 가능
+   - App.jsx 파일의 상단의 저 import 를 삭제해도 vite 서버에서 문제 없이 구동되는걸 확인 가능
+   - main.jsx 파일 상단의
+     `import React, { StrictMode } from "react";` 를
+     `import { StrictMode } from "react";` 로 수정해봐도
+     vite 서버에서 문제 없이 구동되는걸 확인 가능
 
-  → 혹시 정상적으로 보이지 않을 경우 vite 서버를 종료하고
-  → 다시 pnpm dev 명령으로 vite 서버를 다시 열어서 확인해보기!
+     → 혹시 정상적으로 보이지 않을 경우 vite 서버를 종료하고
+     → 다시 pnpm dev 명령으로 vite 서버를 다시 열어서 확인해보기!
 
-1. vite.config.js 파일 내용 수정
+3. vite.config.js 파일 내용 수정
 
-```jsx
-import { defineConfig } from "vite";
-import pluginReact from "@vitejs/plugin-react";
+   ```jsx
+   import { defineConfig } from "vite";
+   import pluginReact from "@vitejs/plugin-react";
 
-const viteConfig = defineConfig({
-  plugins: [
-    pluginReact({
-      jsxRuntime: "automatic",
-    }),
-  ],
-});
-export default viteConfig;
-```
+   const viteConfig = defineConfig({
+     plugins: [
+       pluginReact({
+         jsxRuntime: "automatic",
+       }),
+     ],
+   });
+   export default viteConfig;
+   ```
 
 ---
 
 # ESLint 설치 + 초기구성
 
-    ⚠️ 여기까지만 해도 충분히 페이지는 구현되고 있는데, 문제는 이것만 가지고는 오류를 알려주지 않는다.
+    🧨 여기까지만 해도 페이지는 구현되는데, 문제는 이것만 가지고는 오류를 알려주지 않는다는 것!
 
-### 그래서 ESLint 설치하러 가보자
+### 그래서? ESLint 설치하러 가보자
 
 1.  ESLint 가 깔려있는지 먼저 체크
     아래 명령어를 넣어도 아무것도 나오지 않으면 없다는 뜻
@@ -625,42 +625,42 @@ pnpm ls eslint
 
 1. package.json 에서 아래 코드 추가
 
-```bash
-"lint": "eslint \"./src/**\" --report-unused-disable-directives --ignore-pattern .gitignore"
-```
+   ```bash
+   "lint": "eslint \"./src/**\" --report-unused-disable-directives --ignore-pattern .gitignore"
+   ```
 
 2. 전체코드 복붙..하려면 이거...
 
-```jsx
-{
-	"type": "module",
-	"private": true,
-	"name": "vite-react-template",
-	"version": "0.0.1",
-	"discription": "Vite 커스텀 템플릿을 사용해 React 프로젝트를 오토 스캐폴딩",
-	"scripts": {
-		"dev": "vite",
-		"build": "vite build",
-		"preview": "vite preview",
-		"lint": "eslint \"./src/**\" --report-unused-disable-directives --ignore-pattern .gitignore"
-	},
-	"devDependencies": {
-		"@eslint/js": "9.8.0",
-		"@types/node": "22.0.0",
-		"@types/react": "18.3.3",
-		"@types/react-dom": "18.3.0",
-		"@vitejs/plugin-react": "4.3.1",
-		"eslint": "9.x",
-		"eslint-plugin-react": "7.35.0",
-		"globals": "15.8.0",
-		"vite": "5.3.5"
-	},
-	"dependencies": {
-		"react": "18.3.1",
-		"react-dom": "18.3.1"
-	}
-}
-```
+   ```jsx
+   {
+     "type": "module",
+     "private": true,
+     "name": "vite-react-template",
+     "version": "0.0.1",
+     "discription": "Vite 커스텀 템플릿을 사용해 React 프로젝트를 오토 스캐폴딩",
+     "scripts": {
+       "dev": "vite",
+       "build": "vite build",
+       "preview": "vite preview",
+       "lint": "eslint \"./src/**\" --report-unused-disable-directives --ignore-pattern .gitignore"
+     },
+     "devDependencies": {
+       "@eslint/js": "9.8.0",
+       "@types/node": "22.0.0",
+       "@types/react": "18.3.3",
+       "@types/react-dom": "18.3.0",
+       "@vitejs/plugin-react": "4.3.1",
+       "eslint": "9.x",
+       "eslint-plugin-react": "7.35.0",
+       "globals": "15.8.0",
+       "vite": "5.3.5"
+     },
+     "dependencies": {
+       "react": "18.3.1",
+       "react-dom": "18.3.1"
+     }
+   }
+   ```
 
 ---
 
@@ -671,61 +671,61 @@ pnpm ls eslint
 - eslint-plugin-react-hooks
 - eslint-plugin-react-refresh
 
-```bash
-pnpm add eslint-plugin-react-hooks eslint-plugin-react-refresh -D
-```
+  ```bash
+  pnpm add eslint-plugin-react-hooks eslint-plugin-react-refresh -D
+  ```
 
-1. eslint.config.js 내용 수정 및 추가
+2. eslint.config.js 내용 수정 및 추가
 
-```bash
-import globals from "globals";
-import pluginJs from "@eslint/js";
-import pluginReact from "eslint-plugin-react";
-import pluginReactHooks from "eslint-plugin-react-hooks";
-import pluginReactRefresh from "eslint-plugin-react-refresh";
+   ```bash
+   import globals from "globals";
+   import pluginJs from "@eslint/js";
+   import pluginReact from "eslint-plugin-react";
+   import pluginReactHooks from "eslint-plugin-react-hooks";
+   import pluginReactRefresh from "eslint-plugin-react-refresh";
 
-// Flat Config (ESLint v9+)
-export default [
-  {
-    files: ["**/*.{js,mjs,cjs,jsx}"],
-  },
-  {
-    settings: {
-      react: {
-        version: "detect",
-      },
-    },
-    plugins: {
-      react: pluginReact,
-      "react-hooks": pluginReactHooks,
-      "react-refresh": pluginReactRefresh,
-    },
-  },
-  {
-    languageOptions: {
-      parserOptions: {
-        ecmaFeatures: {
-          jsx: true,
-        },
-      },
-      globals: {
-        ...globals.browser, // globalThis, window, console, alert, ...
-        ...globals.node, // global, process, ...
-      },
-    },
-  },
-  pluginJs.configs.recommended,
-  pluginReact.configs.flat.recommended,
-  {
-    rules: {
-      ...pluginReactHooks.configs.recommended.rules,
-      "react-refresh/only-export-components": "warn",
-      "react/react-in-jsx-scope": "off",
-    },
-  },
-];
+   // Flat Config (ESLint v9+)
+   export default [
+     {
+       files: ["**/*.{js,mjs,cjs,jsx}"],
+     },
+     {
+       settings: {
+         react: {
+           version: "detect",
+         },
+       },
+       plugins: {
+         react: pluginReact,
+         "react-hooks": pluginReactHooks,
+         "react-refresh": pluginReactRefresh,
+       },
+     },
+     {
+       languageOptions: {
+         parserOptions: {
+           ecmaFeatures: {
+             jsx: true,
+           },
+         },
+         globals: {
+           ...globals.browser, // globalThis, window, console, alert, ...
+           ...globals.node, // global, process, ...
+         },
+       },
+     },
+     pluginJs.configs.recommended,
+     pluginReact.configs.flat.recommended,
+     {
+       rules: {
+         ...pluginReactHooks.configs.recommended.rules,
+         "react-refresh/only-export-components": "warn",
+         "react/react-in-jsx-scope": "off",
+       },
+     },
+   ];
 
-```
+   ```
 
 ---
 
